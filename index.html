@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Notas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form id="formulario">
+        <label for="matematica">Matemática:</label>
+        <input type="text" id="matematica" onkeyup="validarNota(this)">
+        <label for="lengua">Lengua:</label>
+        <input type="text" id="lengua" onkeyup="validarNota(this)">
+        <label for="efsi">EFSI:</label>
+        <input type="text" id="efsi" onkeyup="validarNota(this)">
+        <button type="button" onclick="calcularPromedio()">Calcular Promedio</button>
+        <button type="button" onclick="mostrarMateriaMayorNota()">Mostrar Materia con Mayor Nota</button>
+    </form>
+    <script src="script.js"></script>
+    <div id="resultado"></div>
+</body>
+</html>
