@@ -37,7 +37,7 @@ function mostrarMateriaMayorNota() {
     }
     const materias = ['Matemática', 'Lengua', 'EFSI'];
     const maxNota = Math.max(...notas);
-    const materiasConMaxNota = materias.filter((materia, index) => notas[index] === maxNota);
+    const materiasConMaxNota = materias.filter((materia, posicion) => notas[posicion] === maxNota);
     const resultadoDiv = document.getElementById('resultado');
     resultadoDiv.textContent = `Materia(s) con mayor nota: ${materiasConMaxNota.join(', ')}`;
     resultadoDiv.style.color = 'blue';
