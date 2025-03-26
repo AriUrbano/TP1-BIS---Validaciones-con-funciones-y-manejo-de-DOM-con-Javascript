@@ -1,15 +1,16 @@
 function validarNota(input) {
-    const nota = parseFloat(input.value);
-    if (nota < 1 || nota > 10) {
+    const valor = input.value.trim(); 
+    const nota = parseFloat(valor);
+    if (valor === '' || isNaN(nota) || nota < 1 || nota > 10) {
         input.style.color = 'red';
     } else {
-        input.style.color = 'green';
+        input.style.color = 'green'; 
     }
 }
 function calcularPromedio() {
     const notas = obtenerNotas();
     if (!camposCompletos()) {
-        alert('Por favor, complete todos los campos.');
+        alert('Por favor, complete todos los campos correctamente.');
         return;
     }
     if (notas.some(nota => nota < 1 || nota > 10)) {
@@ -28,7 +29,7 @@ function calcularPromedio() {
 function mostrarMateriaMayorNota() {
     const notas = obtenerNotas();
     if (!camposCompletos()) {
-        alert('Por favor, complete todos los campos.');
+        alert('Por favor, complete todos los campos correctamente.');
         return;
     }
     if (notas.some(nota => nota < 1 || nota > 10)) {
@@ -53,5 +54,9 @@ function camposCompletos() {
     const matematica = document.getElementById('matematica').value;
     const lengua = document.getElementById('lengua').value;
     const efsi = document.getElementById('efsi').value;
-    return matematica != '' && lengua != '' && efsi != '';
+    return (
+        matematica !== '' && !isNaN(matematica) &&
+        lengua !== '' && !isNaN(lengua) &&
+        efsi !== '' && !isNaN(efsi)
+    );
 }
